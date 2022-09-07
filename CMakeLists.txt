@@ -55,3 +55,23 @@ add_executable(qjsc
 target_link_libraries(qjsc
 	quickjs
 )
+
+add_custom_command( OUTPUT repl.c
+			   		DEPENDS qjsc 
+               		COMMAND qjsc -c -o repl.c -m ${PROJECT_SOURCE_DIR}/repl.js
+)
+
+add_custom_command( OUTPUT qjscalc.c
+			   		DEPENDS qjsc 
+               		COMMAND qjsc -fbignum -c -o qjscalc.c ${PROJECT_SOURCE_DIR}/qjscalc.js
+)
+
+add_executable(qjs
+	qjs.c
+	repl.c
+	qjscalc.c
+)
+
+target_link_libraries(qjs
+	quickjs
+)
