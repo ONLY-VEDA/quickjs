@@ -2929,19 +2929,19 @@ void normalization_test(const char *filename)
 
         //        dump_str("in", in_str, in_len);
 
-        buf_len = unicode_normalize((uint32_t **)&buf, (uint32_t *)in_str, in_len, UNICODE_NFD, NULL, NULL);
+        buf_len = unicode_normalize_qj((uint32_t **)&buf, (uint32_t *)in_str, in_len, UNICODE_NFD, NULL, NULL);
         check_str("nfd", pos, in_str, in_len, buf, buf_len, nfd_str, nfd_len);
         free(buf);
 
-        buf_len = unicode_normalize((uint32_t **)&buf, (uint32_t *)in_str, in_len, UNICODE_NFKD, NULL, NULL);
+        buf_len = unicode_normalize_qj((uint32_t **)&buf, (uint32_t *)in_str, in_len, UNICODE_NFKD, NULL, NULL);
         check_str("nfkd", pos, in_str, in_len, buf, buf_len, nfkd_str, nfkd_len);
         free(buf);
         
-        buf_len = unicode_normalize((uint32_t **)&buf, (uint32_t *)in_str, in_len, UNICODE_NFC, NULL, NULL);
+        buf_len = unicode_normalize_qj((uint32_t **)&buf, (uint32_t *)in_str, in_len, UNICODE_NFC, NULL, NULL);
         check_str("nfc", pos, in_str, in_len, buf, buf_len, nfc_str, nfc_len);
         free(buf);
 
-        buf_len = unicode_normalize((uint32_t **)&buf, (uint32_t *)in_str, in_len, UNICODE_NFKC, NULL, NULL);
+        buf_len = unicode_normalize_qj((uint32_t **)&buf, (uint32_t *)in_str, in_len, UNICODE_NFKC, NULL, NULL);
         check_str("nfkc", pos, in_str, in_len, buf, buf_len, nfkc_str, nfkc_len);
         free(buf);
 

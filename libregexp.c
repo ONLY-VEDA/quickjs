@@ -1108,7 +1108,7 @@ static int re_parse_group_name(char *buf, int buf_size,
         if (c < 128) {
             *q++ = c;
         } else {
-            q += unicode_to_utf8((uint8_t*)q, c);
+            q += unicode_to_utf8_qj((uint8_t*)q, c);
         }
     }
     if (q == buf)

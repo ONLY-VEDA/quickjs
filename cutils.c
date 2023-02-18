@@ -203,7 +203,7 @@ void dbuf_free(DynBuf *s)
 
 /* Note: at most 31 bits are encoded. At most UTF8_CHAR_LEN_MAX bytes
    are output. */
-int unicode_to_utf8(uint8_t *buf, unsigned int c)
+int unicode_to_utf8_qj(uint8_t *buf, unsigned int c)
 {
     uint8_t *q = buf;
 

@@ -3068,7 +3068,7 @@ static const char *JS_AtomGetStrRT(JSRuntime *rt, char *buf, int buf_size,
                     if (c < 128) {
                         *q++ = c;
                     } else {
-                        q += unicode_to_utf8((uint8_t *)q, c);
+                        q += unicode_to_utf8_qj((uint8_t *)q, c);
                     }
                 }
             }
@@ -4051,7 +4051,7 @@ const char *JS_ToCStringLen2(JSContext *ctx, size_t *plen, JSValueConst val1, BO
                         /* c = 0xfffd; */ /* error */
                     }
                 }
-                q += unicode_to_utf8(q, c);
+                q += unicode_to_utf8_qj(q, c);
             }
         }
     }
@@ -20628,7 +20628,7 @@ static JSAtom parse_ident(JSParseState *s, const uint8_t **pp,
         if (c < 128) {
             buf[ident_pos++] = c;
         } else {
-            ident_pos += unicode_to_utf8((uint8_t*)buf + ident_pos, c);
+            ident_pos += unicode_to_utf8_qj((uint8_t*)buf + ident_pos, c);
         }
         c = *p1++;
         if (c == '\\' && *p1 == 'u') {
@@ -41469,7 +41469,7 @@ static JSValue js_string_normalize(JSContext *ctx, JSValueConst this_val,
         JS_FreeCString(ctx, form);
     }
 
-    out_len = unicode_normalize(&out_buf, buf, buf_len, n_type,
+    out_len = unicode_normalize_qj(&out_buf, buf, buf_len, n_type,
                                 ctx->rt, (DynBufReallocFunc *)js_realloc_rt);
     js_free(ctx, buf);
     if (out_len < 0)

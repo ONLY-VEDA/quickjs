@@ -260,7 +260,7 @@ static JSValue js_printf_internal(JSContext *ctx,
                 if ((unsigned)int32_arg > 0x10FFFF)
                     int32_arg = 0xFFFD;
                 /* ignore conversion flags, width and precision */
-                len = unicode_to_utf8(cbuf, int32_arg);
+                len = unicode_to_utf8_qj(cbuf, int32_arg);
                 dbuf_put(&dbuf, cbuf, len);
                 break;
                 

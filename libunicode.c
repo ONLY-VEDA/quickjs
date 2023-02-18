@@ -850,7 +850,7 @@ static int compose_pair(uint32_t c0, uint32_t c1)
     }
 }
 
-int unicode_normalize(uint32_t **pdst, const uint32_t *src, int src_len,
+int unicode_normalize_qj(uint32_t **pdst, const uint32_t *src, int src_len,
                       UnicodeNormalizationEnum n_type,
                       void *opaque, DynBufReallocFunc *realloc_func)
 {

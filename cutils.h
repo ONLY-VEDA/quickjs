@@ -275,7 +275,7 @@ static inline void dbuf_set_error(DynBuf *s)
 
 #define UTF8_CHAR_LEN_MAX 6
 
-int unicode_to_utf8(uint8_t *buf, unsigned int c);
+int unicode_to_utf8_qj(uint8_t *buf, unsigned int c);
 int unicode_from_utf8(const uint8_t *p, int max_len, const uint8_t **pp);
 
 static inline int from_hex(int c)

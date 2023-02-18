@@ -106,7 +106,7 @@ int cr_invert(CharRange *cr);
 LRE_BOOL lre_is_id_start(uint32_t c);
 LRE_BOOL lre_is_id_continue(uint32_t c);
 
-int unicode_normalize(uint32_t **pdst, const uint32_t *src, int src_len,
+int unicode_normalize_qj(uint32_t **pdst, const uint32_t *src, int src_len,
                       UnicodeNormalizationEnum n_type,
                       void *opaque, void *(*realloc_func)(void *opaque, void *ptr, size_t size));
 
